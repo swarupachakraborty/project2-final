@@ -5,7 +5,8 @@ const collegeModel = require("../models/collegeModel")
 const createIntern = async (req, res) => {
     try {
         const checkEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        const checkMobile = /^(\+\d{1,3}[- ]?)?\d{10}$/
+       // const checkMobile = /^(\+\d{1,3}[- ]?)?\d{10}$/
+         const checkMobile = /^\d{10}$/
             
         if (Object.keys(req.body).length == 0)
             return res.status(400).send({ status: false, msg: "please provide some data" })
