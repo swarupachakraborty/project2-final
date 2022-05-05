@@ -1,4 +1,5 @@
 const collegeModel = require("../models/collegeModel");
+const internModel = require("../models/internModel");
 const createCollege = async function (req, res) {
     try {
          let collegeData = req.body
@@ -29,7 +30,7 @@ const createCollege = async function (req, res) {
               if (data) {
                    return res.status(401).send({ status: false, msg: "Enter Unique name" })}
 
-              let collegeCreated = await collegeModel.create(college)
+              let collegeCreated = await collegeModel.create(collegeData)
               res.status(201).send({ status: true, data: collegeCreated })
     }
     catch (error) {
