@@ -6,7 +6,7 @@ const internSchema =  mongoose.Schema( {
     
     email: { required:true, unique:true, type:String,trim:true },
    
-    mobile:{ type:String, required:true, unique:true},
+    mobile:{ type:String, required:true, unique:true,trim:true},
     
     collegeId: { type:ObjectId, required:true, ref:"College" },
    
