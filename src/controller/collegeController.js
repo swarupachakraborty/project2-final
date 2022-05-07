@@ -44,9 +44,11 @@ const createCollege = async function (req, res) {
      if (!collegeName || typeof collegeName != "string" || collegeName.trim().length == 0)
      return res.status(400).send({ status: false, msg: "please enter valid  name" })
      let collegeData = await collegeModel.findOne({name:collegeName.toLowerCase(),isDeleted:false}).select({name:1,fullName:1,logoLink:1}).lean()
+     console.log(collegeData);
      if(!collegeData)
      return res.status(400).send({status:false,msg:"invalid college name"})
      const internData = await internModel.find({collegeId:collegeData._id}).select({name:1,email:1,mobile:1}).lean()
+     console.log(internData);
      collegeData.interests =  internData
      delete collegeData._id
      res.status(200).send({status:true,data:collegeData})
